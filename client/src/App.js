@@ -1,13 +1,30 @@
-import './App.css';
-import GameContainer from './containers/GameContainer';
+// libraries
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// used BrowserRouter instead of Router due to issues
+// considered Switch too
 
-function App() {
+// components
+import NavBar from './components/NavBar';
+import HomePage from './components/HomePage';
+import GameContainer from './containers/GameContainer';
+import GameRules from './components/GameRules';
+import LeaderBoard from './components/LeaderBoard';
+
+const App = () => { 
   return (
     <div className="App">
-    <GameContainer />
-
+      <Router>
+      <NavBar />
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route path="/game" element={<GameContainer />} />
+          <Route path="/game-rules" element={<GameRules />} />
+          <Route path="/leaderboard" element={<LeaderBoard />} />
+        </Routes>
+      </Router>
     </div>
   );
-}
+};
+
 
 export default App;
