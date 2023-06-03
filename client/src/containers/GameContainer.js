@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import NavBar from './NavBar';
-import Header from './Header';
-import MoviePoster from './MoviePoster';
-import MovieForm from './MovieForm';
-import Footer from './Footer';
-import LeaderBoard from './LeaderBoard';
+import NavBar from '../components/NavBar';
+import Header from '../components/Header';
+import MoviePoster from '../components/MoviePoster';
+import MovieForm from '../components/MovieForm';
+import Footer from '../components/Footer';
+import LeaderBoard from '../components/LeaderBoard';
 
 const GameContainer = () => {
     return (
