@@ -1,3 +1,10 @@
+/* Google font imports */
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
+nav {
+  font-family: 'Electrolize', sans-serif;
+}
+
 /* .App {
   text-align: center;
 }

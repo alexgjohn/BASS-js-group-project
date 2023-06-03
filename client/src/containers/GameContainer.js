@@ -58,7 +58,7 @@ const GameContainer = () => {
     return (
         <>
         <h1>This is the GameContainer</h1>
-        <NavBar />
+        {/* <NavBar /> */}
         <Header />
         <MoviePoster />
         <MovieForm />
