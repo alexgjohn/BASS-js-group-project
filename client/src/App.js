@@ -9,6 +9,7 @@ import HomePage from './components/HomePage';
 import GameContainer from './containers/GameContainer';
 import GameRules from './components/GameRules';
 import LeaderBoard from './components/LeaderBoard';
+import ErrorPage from './components/ErrorPage';
 
 const App = () => { 
   return (
@@ -20,6 +21,8 @@ const App = () => {
           <Route path="/game" element={<GameContainer />} />
           <Route path="/game-rules" element={<GameRules />} />
           <Route path="/leaderboard" element={<LeaderBoard />} />
+          <Route path="*" element={<ErrorPage />} />
+
         </Routes>
       </Router>
     </div>
