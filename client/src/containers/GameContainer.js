@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
 import MoviePoster from '../components/MoviePoster';
 import MovieForm from '../components/MovieForm';
 import Footer from '../components/Footer';
 import LeaderBoard from '../components/LeaderBoard';
+
+const apiKey = "3ca5b3528412adc793325fb27cf4b072";
+const baseUrl = "https://api.themoviedb.org/3";
+const discoverEndpoint = `${baseUrl}/discover/movie?api_key=${apiKey}&with_original_language=en&without_genres=99`;
 
 const GameContainer = () => {
 
