@@ -1,5 +1,5 @@
 // state
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 // material ui lib
 // everything needs to be wrapped around ThemeProvider
 // import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -16,36 +16,43 @@ const [movieTitleResults, setMovieTitleResults] = useState([]);
 // state for the guesses, plural!
 const [guesses, setGuesses] = useState([]);
 
-// handle guess function (for our group app I think maybe putting it in MovieForm instead of App.js)
-const handleGuessSubmit = () => {
+// state for when an option is chosen from the autofill thing
+const [selectedOption, setSelectedOption] = useState(null);
+
+// useEffect for API so only renders once but not repeatedly
+useEffect(() => {
+  // fetch('http://www.boredapi.com/api/activity?type=recreational') - tried this but wasn't suited
+  fetch('https://www.balldontlie.io/api/v1/players')
+      .then((response) => response.json())
+      .then((json) => setMovieTitleResults(json.data))
+}, [])
+// testing to see if the data is accessible out with there ^
+console.log(movieTitleResults)
+
+// handle guess submit func
+const handleGuessSubmit = (selectedOption) => {
   if (selectedOption) {
     setGuesses((prevGuesses) => [...prevGuesses, selectedOption]);
     setSelectedOption(null);
   }
 };
 
-// state for when an option is chosen from the autofill thing
-const [selectedOption, setSelectedOption] = useState(null);
-
 
 // need to create a theme so the ThemeProvider breaks (I think ThemeProvider is like a container)
 const theme = createTheme();
 
-
   return (
   
     <ThemeProvider theme={theme}>
-    <div className="App">
-    {/* search bar is in AutoCompleteSearchBox obvs, movie results passed as props */}
-    <AutoCompleteSearchBox movieTitleResults={movieTitleResults} setMovieTitleResults={setMovieTitleResults}
-      selectedOption={selectedOption} onSelectedOptionChange={setSelectedOption}
-      onGuessSubmit={handleGuessSubmit}
-    />
-        {/* guesses comp goes here, guesses passed as props */}
-    <GuessesAttempted guesses={guesses} setGuesses={setGuesses} handleGuessSubmit={handleGuessSubmit}/>
-
-      
-    </div>
+      <div className="App">
+        <AutoCompleteSearchBox
+          movieTitleResults={movieTitleResults}
+          selectedOption={selectedOption}
+          setSelectedOption={setSelectedOption}
+          onGuessSubmit={handleGuessSubmit}
+        />
+        <GuessesAttempted guesses={guesses} />
+      </div>
     </ThemeProvider>
   );
 }
