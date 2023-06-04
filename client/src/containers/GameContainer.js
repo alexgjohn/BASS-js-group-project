@@ -22,6 +22,10 @@ const GameContainer = () => {
     const [currentPage, setCurrentPage] = useState(randomPage)
     const [targetMovie, setTargetMovie] = useState(null)
 
+    // other state for score and the guesses
+    const [score, setScore] = useState(0);
+    const [guesses, setGuesses] = useState([]);
+
     //use effect runs on mount and whenever the current page is changed with setCurrentPage
     useEffect(() => {
         getMovies(currentPage)
@@ -56,14 +60,24 @@ const GameContainer = () => {
         setCurrentPage(randomPage)
     }
 
+    // functions for MovieForm
+    const handleGuessSubmit = (userGuess) => {
+        console.log(`the user's guess is`, userGuess)
+        // takes in userGuess, the guesses var gets updated
+        // spread... creates another array that keeps the guesses from the original array (adds them together in a new array I think)
+        // the new guess is added to the array too
+        // takes the guess and updates the state
+        setGuesses([...guesses, userGuess]);
+    }
+
     return (
         <>
         <h1>This is the GameContainer</h1>
         {/* <NavBar /> */}
         <Header />
-        <MoviePoster />
-        <MovieForm />
-        <GameStatus />
+        <MoviePoster targetMovie={targetMovie}/>
+        <MovieForm onGuessSubmit={handleGuessSubmit} guesses={guesses}/>
+        <GameStatus score={score}/>
         <LeaderBoard />
         <Footer />
         </>
