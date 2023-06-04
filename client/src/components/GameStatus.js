@@ -1,7 +1,14 @@
+import NumberOfQuestionsAnswered from "./NumberOfQuestionsAnswered";
+import ScoreBox from "./ScoreBox";
+
+
 const GameStatus = () => {
     return (
         <>
-        <h2>This is the GameStatus (contains ScoreLabel and QuestionLabel)</h2>
+        <h2>This is the GameStatus (contains ScoreBox and NumberOfQuestionsAnswered)</h2>
+        <ScoreBox />
+        <NumberOfQuestionsAnswered />
+
 
         </>
     );

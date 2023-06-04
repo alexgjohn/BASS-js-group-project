@@ -5,6 +5,7 @@ import MoviePoster from '../components/MoviePoster';
 import MovieForm from '../components/MovieForm';
 import Footer from '../components/Footer';
 import LeaderBoard from '../components/LeaderBoard';
+import GameStatus from '../components/GameStatus';
 
 const apiKey = "3ca5b3528412adc793325fb27cf4b072";
 const baseUrl = "https://api.themoviedb.org/3";
@@ -62,6 +63,7 @@ const GameContainer = () => {
         <Header />
         <MoviePoster />
         <MovieForm />
+        <GameStatus />
         <LeaderBoard />
         <Footer />
         </>
