@@ -5,6 +5,8 @@ import MoviePoster from '../components/MoviePoster';
 import MovieForm from '../components/MovieForm';
 import Footer from '../components/Footer';
 import LeaderBoard from '../components/LeaderBoard';
+import { getUsers, postUser, putUser } from '../services/UsersService';
+import UserForm from '../components/UserForm';
 
 const apiKey = "3ca5b3528412adc793325fb27cf4b072";
 const baseUrl = "https://api.themoviedb.org/3";
@@ -20,6 +22,7 @@ const GameContainer = () => {
     const [movies, setMovies] = useState([])
     const [currentPage, setCurrentPage] = useState(randomPage)
     const [targetMovie, setTargetMovie] = useState(null)
+    const [users, setUsers] = useState([])
 
     //use effect runs on mount and whenever the current page is changed with setCurrentPage
     useEffect(() => {
@@ -32,12 +35,15 @@ const GameContainer = () => {
         assignTargetMovie()
     }, [movies])
 
-    //this is just to check that we HAVE a target movie
     useEffect(() => {
-        if (targetMovie !== null) {
-        console.log("Target movie:", targetMovie)
-        }
-    }, [targetMovie])
+        getUsers()
+        .then(allUsers => setUsers(allUsers))
+    }, [])
+
+    if (users.length) {
+        console.log("All users:", users)
+    }
+
 
     const getMovies = function(page) {
         const pageUrl = `${discoverEndpoint}&page=${page}`
@@ -55,11 +61,17 @@ const GameContainer = () => {
         setCurrentPage(randomPage)
     }
 
+    const createUser = newUser => {
+        postUser(newUser)
+        .then(savedUser => setUsers([...users, savedUser]))
+    }
+
     return (
         <>
         <h1>This is the GameContainer</h1>
         <NavBar />
         <Header />
+        <UserForm createUser={createUser}/>
         <MoviePoster />
         <MovieForm />
         <LeaderBoard />

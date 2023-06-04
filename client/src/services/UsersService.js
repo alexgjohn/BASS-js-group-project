@@ -23,6 +23,7 @@ export const deleteUser = (id) => {
     })
 }
 
+//when user is created, db id is automatically added. We need a method for retrieving this so that we can run function below
 //or main one, really. Updates the user's played and wins properties at end of each game.
 export const putUser = (updatedPayload) => {
     return fetch(baseURL + updatedPayload._id, {
