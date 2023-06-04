@@ -12,7 +12,7 @@ const UserForm = ({createUser}) => {
     const handleSubmit = ev => {
         ev.preventDefault();
         createUser({ //will send a post request to the database and add a user
-            user: userName,
+            userName: userName,
             wins: 0,
             played: 0
         });
