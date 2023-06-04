@@ -1,6 +1,9 @@
 const LeaderBoard = ({users}) => {
 
     const listOfUserNames = users.map((user) => {
+        if (user === undefined) {
+            return null
+        }
         return (
             <li key={user._id}>{user.userName} - Wins: {user.wins}</li>
         )
