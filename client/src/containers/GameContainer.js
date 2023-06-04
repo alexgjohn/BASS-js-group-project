@@ -93,7 +93,7 @@ const GameContainer = () => {
         <Header />
         <UserForm createUser={createUser}/>
         <MoviePoster />
-        <MovieForm />
+        <MovieForm updateUserStats={updateUserStats} user={users[3]}/>
         <LeaderBoard users={users}/>
         <Footer />
         </>
