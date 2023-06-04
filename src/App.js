@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 // material ui lib
 // everything needs to be wrapped around ThemeProvider
 // import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { createTheme, ThemeProvider } from '@mui/system';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // components
 import AutoCompleteSearchBox from "./components/AutoCompleteSearchBox";
@@ -18,8 +18,6 @@ const theme = createTheme();
 
 
   return (
-    <>
-    <h1>hello jupiter</h1>
   
     <ThemeProvider theme={theme}>
     <div className="App">
@@ -27,7 +25,6 @@ const theme = createTheme();
       
     </div>
     </ThemeProvider>
-    </>
   );
 }
 
