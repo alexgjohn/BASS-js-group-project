@@ -12,10 +12,10 @@ import { createTheme, ThemeProvider } from '@mui/system';
 
 
 // I need to pass in state as a prop here
-const AutoCompleteSearchBox = ({ movieTitleResults, setMovieTitleResults }) => {
+const AutoCompleteSearchBox = ({ movieTitleResults, setMovieTitleResults, handleGuessSubmit}) => {
 
     useEffect(() => {
-        // fetch('http://www.boredapi.com/api/activity?type=recreational')
+        // fetch('http://www.boredapi.com/api/activity?type=recreational') - tried this but wasn't suited
         fetch('https://www.balldontlie.io/api/v1/players')
             .then((response) => response.json())
             .then((json) => setMovieTitleResults(json.data))
@@ -26,6 +26,7 @@ const AutoCompleteSearchBox = ({ movieTitleResults, setMovieTitleResults }) => {
     return (
         <>
         <h2>This is the AutoCompleteSearchBox component</h2>
+        <form>
             <Stack sx={{ width: 300 }}>
             <Autocomplete
                 id="names_demo"
@@ -59,7 +60,10 @@ const AutoCompleteSearchBox = ({ movieTitleResults, setMovieTitleResults }) => {
                 renderInput={(params) => <TextField {...params} label="Type in your movie title guess"/>}
 
                 />
+                {/* this is the onClick so button so when they've typed something it moves their answer to the guesses attempted, maybe on click on the input could also work */}
+                <button onClick={handleGuessSubmit}>Submit Guess</button>
             </Stack>
+            </form>
         </>
     );
 };
