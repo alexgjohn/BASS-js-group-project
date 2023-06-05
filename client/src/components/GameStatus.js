@@ -46,7 +46,7 @@ const GameStatus = () => {
     // Game Logic end
 
 
-    // This output can be changed to the input bar with a list of options
+    // This can be changed to the input bar with a list of options
     return (
         <>
         <h2>This is the GameStatus (contains ScoreLabel and QuestionLabel)</h2>
@@ -68,6 +68,8 @@ const GameStatus = () => {
           </select>
           <button onClick={handleMovieGuess}>Submit</button>
           <p>Remaining Guesses: {remainingGuesses}</p>
+          <button onClick={handleOpenCongratulationsModal}>When player wins</button>
+          <button onClick={handleOpenGameoverModal}>When player loses</button>
 
           <PopupModal isOpen={isCongratulationsModalOpen} onClose={handleCloseCongratulationsModal} />
           <PopupModal isOpen={isGameoverModalOpen} onClose={handleCloseGameoverModal} />
