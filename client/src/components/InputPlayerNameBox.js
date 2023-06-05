@@ -1,32 +1,27 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const InputPlayerNameBox = ({ onNameSubmit }) => {
-    const [name, setName] = useState('');
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      if (name.trim() !== '') {
-        onNameSubmit(name);
-      }
-    };
-  
-    const handleChange = (event) => {
-      setName(event.target.value);
-    };
-    return (
-        <>
-            <h2>This is the InputPlayerNameBox</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Enter your name:
-                    <input type="text" value={name} onChange={handleChange} />
-                </label>
-                <button type="submit">Submit</button>
-            </form>
+const InputPlayerNameBox = () => {
+  const [playerName, setPlayerName] = useState('');
+  const navigate = useNavigate();
 
-        </>
-    );
-}
+  const handleInputChange = (e) => {
+    setPlayerName(e.target.value);
+  };
+
+  const handleButtonClick = () => {
+// need to put logic hereeeee
+
+// https://reactnavigation.org/docs/navigating/#:~:text=The%20navigate%20function%20roughly%20means,that%20it%20would%20do%20nothing
+    navigate(`/game?name=${playerName}`);
+  };
+
+  return (
+    <div>
+      <input type="text" value={playerName} onChange={handleInputChange} />
+      <button onClick={handleButtonClick}>Start Game</button>
+    </div>
+  );
+};
 
 export default InputPlayerNameBox;
-
