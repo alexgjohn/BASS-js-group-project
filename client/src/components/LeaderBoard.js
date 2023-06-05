@@ -12,14 +12,7 @@ const listOfUserNames = users
     };
     })
     .sort((a, b) => b.winRate - a.winRate) // Sort in descending order based on winRate
-    //.map((user) => (
-
-        //return listOfUserNames
-    // <li key={user.id}>
-    //     {user.userName}: Win rate - {user.winRate}%
-    // </li>
-    //));
-
+ 
 return (
     <>
     <LeaderBoardTable users={listOfUserNames} />
