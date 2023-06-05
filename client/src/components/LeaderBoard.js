@@ -1,3 +1,5 @@
+import LeaderBoardTable from './LeaderBoardTable'
+
 const LeaderBoard = ({ users }) => {
 const listOfUserNames = users
     .map((user) => {
@@ -18,8 +20,7 @@ const listOfUserNames = users
 
 return (
     <>
-    <h2>This is the LeaderBoard (extension)</h2>
-    <ul>{listOfUserNames}</ul>
+    <LeaderBoardTable users={users} />
     </>
 );
 };
