@@ -33,8 +33,12 @@ const MovieForm = ({movies, targetMovie, updateUserStats, user}) => {
     // handle guess submit func
     const handleGuessSubmit = (selectedOption) => {
         if (selectedOption) {
+            if (selectedOption === targetMovie) {
+                console.log("correct!")
+            } else {
+                console.log("Whoops wrong!!")
+            }
         // setGuesses((prevGuesses) => [...prevGuesses, selectedOption]);
-            console.log(selectedOption)
             setSelectedOption(null);
         }
     };

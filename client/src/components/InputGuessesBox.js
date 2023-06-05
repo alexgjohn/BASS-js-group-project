@@ -14,8 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/system';
 const InputGuessesBox = ({ movies, selectedOption, setSelectedOption, onGuessSubmit, handleGuessSubmit}) => {
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleGuessSubmit(event.target.value)
-        console.log(event.target.value)
+        handleGuessSubmit(selectedOption)
         console.log(selectedOption)
         // onGuessSubmit(selectedOption);
     };
