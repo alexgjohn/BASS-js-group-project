@@ -1,0 +1,20 @@
+import ReactModal from 'react-modal';
+
+function CongratulationsPopupModal({ isOpen, onClose }) {
+    return (
+        <ReactModal
+        isOpen={isOpen}
+        onRequestClose={onClose}
+        contentLabel="Popup Modal"
+        >
+        {/* Content for the pop-up window */}
+        <h2>Popup Content</h2>
+        <p>Congratulations!</p>
+        <p>Play another game?</p>
+        <p>Exit</p>
+        <button onClick={onClose}>Close</button>
+        </ReactModal>
+    );
+}
+
+export default CongratulationsPopupModal;
