@@ -89,11 +89,10 @@ const GameContainer = () => {
     return (
         <>
         <h1>This is the GameContainer</h1>
-        <NavBar />
         <Header />
         <UserForm createUser={createUser}/>
         <MoviePoster />
-        <MovieForm updateUserStats={updateUserStats} user={users[3]}/>
+        <MovieForm updateUserStats={updateUserStats} user={users[0]}/>
         <LeaderBoard users={users}/>
         <Footer />
         </>
