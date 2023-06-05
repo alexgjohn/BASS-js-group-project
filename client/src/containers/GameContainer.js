@@ -89,7 +89,6 @@ const GameContainer = () => {
     return (
         <>
         <h1>This is the GameContainer</h1>
-        <NavBar />
         <Header />
         <UserForm createUser={createUser}/>
         <MoviePoster />
