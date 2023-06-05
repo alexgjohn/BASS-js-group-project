@@ -21,7 +21,7 @@ const GameContainer = ({movies, targetMovie, users, updateUserStats}) => {
         {/* <Header /> */}
         {/* <UserForm createUser={createUser}/> */}
         <MoviePoster targetMovie={targetMovie}/>
-        <MovieForm updateUserStats={updateUserStats} user={users[0]}/>
+        <MovieForm movies={movies} targetMovie={targetMovie} updateUserStats={updateUserStats} user={users[0]}/>
         {/* <LeaderBoard users={users}/> */}
         {/* <Footer /> */}
         </>

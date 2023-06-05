@@ -4,7 +4,7 @@ import InputGuessesBox from './InputGuessesBox';
 import GuessesAttempted from './GuessesAttempted';
 
 
-const MovieForm = ({updateUserStats, user}) => {
+const MovieForm = ({movies, targetMovie, updateUserStats, user}) => {
 
     const handleWin = () => {
         console.log("You win!")
@@ -29,7 +29,7 @@ const MovieForm = ({updateUserStats, user}) => {
     return (
         <>
         <h2>This is the MovieForm (contains InputGuessesBox and GuessesAttempted)</h2>
-        <InputGuessesBox />
+        <InputGuessesBox movies={movies}/>
         <GuessesAttempted />
         <button onClick={handleWin}>Win</button>
         <button onClick={handleLose}>Lose</button>
