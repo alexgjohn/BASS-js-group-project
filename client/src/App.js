@@ -100,7 +100,7 @@ function App() {
         <Route path="/play" element={<InputPlayerNameBox />} />
         <Route path="/game-rules" element={<GameRules />} />
         <Route path="game" element={<GameContainer movies={movies} targetMovie={targetMovie} users={users} updateUserStats={updateUserStats}/>} />
-        <Route path="/leaderboard" element={<LeaderBoardContainer />} />
+        <Route path="/leaderboard" element={<LeaderBoard users={users}/>} />
         <Route path="*" element={<ErrorPage />} />
       
       </Routes>
