@@ -75,16 +75,6 @@ const GameContainer = () => {
         setUsers(updatedUsers)
     }
 
-    // const updateBooking = updatedBooking => {
-    //     // req to server to update booking in DB
-    //     BookingService.updateBooking(updatedBooking);
-    
-    //     // update locally
-    //     const updatedBookingIndex = bookings.findIndex(booking => booking._id === updatedBooking._id);
-    //     const updatedBookings = [...bookings];
-    //     updatedBookings[updatedBookingIndex] = updatedBooking;
-    //     setBookings(updatedBookings);
-    //   };
 
     return (
         <>
