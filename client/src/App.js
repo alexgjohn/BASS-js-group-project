@@ -6,9 +6,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // components
 import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
-import GameContainer from './containers/GameContainer';
+import GameContainer from './containers/GameContainer'; // Play page in navbar
 import GameRules from './components/GameRules';
-import LeaderBoard from './components/LeaderBoard';
+import LeaderBoardContainer from './containers/LeaderBoardContainer';
 import ErrorPage from './components/ErrorPage';
 
 const App = () => { 
@@ -18,9 +18,9 @@ const App = () => {
       <NavBar />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/game" element={<GameContainer />} />
+          <Route path="/play" element={<GameContainer />} />
           <Route path="/game-rules" element={<GameRules />} />
-          <Route path="/leaderboard" element={<LeaderBoard />} />
+          <Route path="/leaderboard" element={<LeaderBoardContainer />} />
           <Route path="*" element={<ErrorPage />} />
 
         </Routes>

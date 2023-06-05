@@ -73,7 +73,7 @@ const NavBar = () => {
             {/* wrapped around lis for styling */}
                 <li><NavLogo>BASS<span>GAMES</span></NavLogo></li>
                 <li><Link to ="/">Home</Link></li>
-                <li><Link to ="/game">Game</Link></li>
+                <li><Link to ="/play">Play</Link></li>
                 <li><Link to ="/game-rules">Game Rules</Link></li>
                 <li><Link to ="/leaderboard">Leaderboard</Link></li>
             </ul>

@@ -2,10 +2,11 @@
 import React, { useState } from 'react';
 import InputGuessesBox from './InputGuessesBox';
 import GuessesAttempted from './GuessesAttempted';
+import InputPlayerNameBox from './InputPlayerNameBox';
 
 // passing the props onGuessSubmit, hasWon, hasLost, and guesses
 // state needed for what user types into input box
-const MovieForm = ({ onGuessSubmit, guesses }) => {
+const MovieForm = ({ onGuessSubmit, guesses, playerName, setPlayerName, onStartGame, onNameSubmit}) => {
     const [userGuess, setUserGuess] = useState('');
 
     // this function handles what guess str is submitted
@@ -27,8 +28,9 @@ const MovieForm = ({ onGuessSubmit, guesses }) => {
 
     return (
         <>
-            <h2>This is the MovieForm (contains InputGuessesBox and GuessesAttempted)</h2>
+            <h2>This is the MovieForm (contains InputGuessesBox, InputPlayerNameBox and GuessesAttempted)</h2>
             <InputGuessesBox value={userGuess} onChange={handleGuessChange} onSubmit={handleGuessSubmit} />
+            <InputPlayerNameBox onNameSubmit={onNameSubmit}/>
             <GuessesAttempted guesses={guesses} />
         </>
     );
