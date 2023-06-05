@@ -12,6 +12,9 @@ const MovieForm = ({movies, targetMovie, updateUserStats, user}) => {
 
     const [selectedOption, setSelectedOption] = useState(null)
 
+    // state for guesses
+    const [guesses, setGuesses] = useState([]);
+
     const [isCongratulationsModalOpen, setIsCongratulationsModalOpen] = useState(false);
     const [isGameOverModalOpen, setIsGameOverModalOpen] = useState(false);
 
@@ -71,7 +74,7 @@ const MovieForm = ({movies, targetMovie, updateUserStats, user}) => {
         <h2>This is the MovieForm (contains InputGuessesBox and GuessesAttempted)</h2>
         <InputGuessesBox movies={movies} setSelectedOption={setSelectedOption} handleGuessSubmit={handleGuessSubmit} selectedOption={selectedOption}
         />
-        <GuessesAttempted />
+        <GuessesAttempted guesses={guesses}/>
 
         <div>
             <GameOverPopupModal isOpen={isGameOverModalOpen} onClose={handleCloseGameOverModal} />
