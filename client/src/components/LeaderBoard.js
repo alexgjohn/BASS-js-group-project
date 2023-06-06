@@ -1,3 +1,5 @@
+import LeaderBoardTable from './LeaderBoardTable'
+
 const LeaderBoard = ({ users }) => {
 const listOfUserNames = users
     .map((user) => {
@@ -10,16 +12,10 @@ const listOfUserNames = users
     };
     })
     .sort((a, b) => b.winRate - a.winRate) // Sort in descending order based on winRate
-    .map((user) => (
-    <li key={user.id}>
-        {user.userName}: Win rate - {user.winRate}%
-    </li>
-    ));
-
+ 
 return (
     <>
-    <h2>This is the LeaderBoard (extension)</h2>
-    <ul>{listOfUserNames}</ul>
+    <LeaderBoardTable users={listOfUserNames} />
     </>
 );
 };
