@@ -54,9 +54,11 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
             if (selectedOption === targetMovie.original_title) {
                 console.log('correct!');
                 handleOpenCongratulationsModal();
+                handleWin()
             } else {
                 console.log('Whoops wrong!!');
                 handleOpenGameOverModal();
+                handleLose()
             }
 
             // this updates the state guesses has, gets the previous guesses value then creates another new array by taking the old guesses and adding them with a new guess that's entered

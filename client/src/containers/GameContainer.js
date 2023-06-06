@@ -10,7 +10,7 @@ import MovieForm from '../components/MovieForm';
 // import GameOverPopupModal from '../components/GameOverPopUpModal';
 
 
-const GameContainer = ({movies, targetMovie, users, updateUserStats}) => {
+const GameContainer = ({movies, targetMovie, currentUser, updateUserStats}) => {
 
     const [guesses, setGuesses] = useState([]);
 
@@ -28,7 +28,7 @@ const GameContainer = ({movies, targetMovie, users, updateUserStats}) => {
         {/* <Header /> */}
         {/* <UserForm createUser={createUser}/> */}
         <MoviePoster targetMovie={targetMovie} guesses={guesses}/>
-        <MovieForm movies={movies} targetMovie={targetMovie} updateUserStats={updateUserStats} user={users[0]} guesses={guesses} setGuesses={setGuesses}/>
+        <MovieForm movies={movies} targetMovie={targetMovie} updateUserStats={updateUserStats} user={currentUser} guesses={guesses} setGuesses={setGuesses}/>
         {/* <LeaderBoard users={users}/> */}
         {/* <Footer /> */}
         </>
