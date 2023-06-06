@@ -1,23 +1,23 @@
-const LeaderBoard = ({users}) => {
+import LeaderBoardTable from './LeaderBoardTable'
 
+const LeaderBoard = ({ users }) => {
+const listOfUserNames = users
+    .map((user) => {
+    const winRate = Math.floor((user.wins / user.played) * 100);
 
-    const listOfUserNames = users.map((user) => {
-        if (user === undefined) {
-            return null
-        }
-        return (
-            <li key={user._id}>{user.userName} - Played: {user.played}, Wins: {user.wins}</li>
-        )
+    return {
+        id: user._id,
+        userName: user.userName,
+        winRate: winRate,
+    };
     })
-
-    return (
-        <>
-        <h2>This is the LeaderBoard (extension)</h2>
-        <ul>
-            {listOfUserNames}
-        </ul>
-        </>
-    );
-}
+    .sort((a, b) => b.winRate - a.winRate) // Sort in descending order based on winRate
+ 
+return (
+    <>
+    <LeaderBoardTable users={listOfUserNames} />
+    </>
+);
+};
 
 export default LeaderBoard;

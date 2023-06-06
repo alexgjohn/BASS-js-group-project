@@ -14,10 +14,11 @@ import { createTheme, ThemeProvider } from '@mui/system';
 const InputGuessesBox = ({ movies, selectedOption, setSelectedOption, onGuessSubmit, handleGuessSubmit}) => {
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleGuessSubmit(selectedOption)
-        console.log(selectedOption)
+        handleGuessSubmit(selectedOption.original_title); // passes the selectedOption as a string
+};
+        // console.log(selectedOption)
         // onGuessSubmit(selectedOption);
-    };
+
 
 
 
