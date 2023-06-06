@@ -7,6 +7,8 @@ const listOfUserNames = users
             return {
                 id: user._id,
                 userName: user.userName,
+                wins: user.wins,
+                played: user.played,
                 winRate: 0
             };
         } else {
@@ -15,7 +17,9 @@ const listOfUserNames = users
             return {
                 id: user._id,
                 userName: user.userName,
-                winRate: winRate,
+                wins: user.wins,
+                played: user.played,
+                winRate: winRate
     };
         }
     })

@@ -9,10 +9,9 @@ const key = 'Compact Table';
 const LeaderBoardTable = ({ users }) => {
   
   const Table = styled.div`
-  max-width: 600px; /* Set a maximum width for the table container */
+  max-width: 900px; /* Set a maximum width for the table container */
   margin: 0 auto; /* Center the table horizontally */
   `
-
   const data = { nodes: users };
 
   //const theme = useTheme(getTheme());
@@ -20,17 +19,27 @@ const LeaderBoardTable = ({ users }) => {
     getTheme(),
     {
       HeaderRow: `
-      margin-right: 25%;
-      margin-left: 25%;
       font-family: 'Electrolize', sans-serif;
         color: white;
-        // background-color: #eaf5fd;
         background-color:rgb(105, 27, 58)
-  
       `,
+      BaseCell: `
+      &:not(:last-of-type) {
+        border-right: 1px solid #a0a8ae;
+      }
+
+      text-align: center;
+
+      &:first-of-type {
+        text-align: left;
+      }
+
+      &:last-of-type {
+        text-align: right;
+      }
+    `,
       Row: `
-      margin-right: 25%;
-      margin-left: 25%;
+      text-align: center;
       font-family: 'Electrolize', sans-serif;
 
         &:nth-of-type(odd) {
@@ -48,9 +57,11 @@ const LeaderBoardTable = ({ users }) => {
 
   const COLUMNS = [
     { label: 'Player', renderCell: (item) => item.userName },
+    { label: 'Wins', renderCell: (item) => item.wins },
+    { label: 'Played', renderCell: (item) => item.played },
     { label: 'Score %', renderCell: (item) => item.winRate},
   ];
-
+  
   return (
   <>
   <Table>
