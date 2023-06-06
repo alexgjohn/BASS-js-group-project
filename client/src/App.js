@@ -12,7 +12,7 @@ import ErrorPage from './components/ErrorPage';
 import InputPlayerNameBox from './components/InputPlayerNameBox';
 import Footer from './components/Footer';
 
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import MoviePoster from './components/MoviePoster';
 import MovieForm from './components/MovieForm';
@@ -51,7 +51,7 @@ function App() {
 
     useEffect(() => {
         getUsers()
-        .then(allUsers => setUsers(allUsers))
+            .then(allUsers => setUsers(allUsers))
     }, [])
 
     if (users.length) {
@@ -59,11 +59,11 @@ function App() {
     }
 
 
-    const getMovies = function(page) {
+    const getMovies = function (page) {
         const pageUrl = `${discoverEndpoint}&page=${page}`
         fetch(pageUrl)
-        .then(res => res.json())
-        .then(movies => setMovies(movies.results))
+            .then(res => res.json())
+            .then(movies => setMovies(movies.results))
     }
 
     const assignTargetMovie = () => {
@@ -77,7 +77,7 @@ function App() {
 
     const createUser = newUser => {
         postUser(newUser)
-        .then(savedUser => setUsers([...users, savedUser]))
+            .then(savedUser => setUsers([...users, savedUser]))
     }
 
     const updateUserStats = updatedStats => {
@@ -89,26 +89,26 @@ function App() {
         setUsers(updatedUsers)
     }
 
-    
 
-  return (
-    <div className="App">
-    <Router>
-    <NavBar />
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route path="/play" element={<InputPlayerNameBox />} />
-        <Route path="/game-rules" element={<GameRules />} />
-        <Route path="game" element={<GameContainer movies={movies} targetMovie={targetMovie} users={users} updateUserStats={updateUserStats}/>} />
-        <Route path="/leaderboard" element={<LeaderBoard users={users}/>} />
-        <Route path="*" element={<ErrorPage />} />
-      
-      </Routes>
 
-    </Router>
-    <Footer/>
-  </div>
-  );
+    return (
+        <div className="App">
+            <Router>
+                <NavBar />
+                <Routes>
+                    <Route exact path="/" element={<HomePage />} />
+                    <Route path="/play" element={<InputPlayerNameBox />} />
+                    <Route path="/game-rules" element={<GameRules />} />
+                    <Route path="game" element={<GameContainer movies={movies} targetMovie={targetMovie} users={users} updateUserStats={updateUserStats} />} />
+                    <Route path="/leaderboard" element={<LeaderBoard users={users} />} />
+                    <Route path="*" element={<ErrorPage />} />
+
+                </Routes>
+
+            </Router>
+            <Footer />
+        </div>
+    );
 }
 
 export default App;
