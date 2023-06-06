@@ -2,6 +2,9 @@
 import React from 'react';
 // for react-router-dom (use link as li)
 import {Link} from 'react-router-dom';
+// Link is for the li items :)
+// useNavigate is for the logo to redirect to the page I want
+
 
 // styles
 import styled from 'styled-components';
@@ -19,7 +22,8 @@ const StyledNavContainer = styled.nav`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: 900;
 
 ul {
     display: flex;
@@ -54,6 +58,10 @@ span {
     font-weight: 900;
     color: rgb(211, 166, 37);
 }
+
+span:hover {
+    color: rgb(255, 255, 255);
+}
 `
 
 // logo text 
@@ -64,6 +72,12 @@ const NavLogo = styled.p`
     
 `
 
+// this is the function for when the logo BASSGAMES is clicked, it takes you home :D
+const handleLogoClick = (event) => {
+    event.preventDefault();
+    window.location.href = '/'; // Redirect to the homepage
+};
+
 
 const NavBar = () => {
     return (
@@ -72,8 +86,8 @@ const NavBar = () => {
         <StyledNavContainer className="main-navbar">
             <ul>
             {/* wrapped around lis for styling */}
-                <li><NavLogo>BASS<span>GAMES</span></NavLogo></li>
-                <li><Link to ="/">Home</Link></li>
+            <li>
+            <NavLogo><Link to="/" onClick={handleLogoClick}>BASS<span>GAMES</span></Link></NavLogo></li>               
                 <li><Link to ="/play">Play</Link></li>
                 <li><Link to ="/game-rules">Game Rules</Link></li>
                 <li><Link to ="/leaderboard">Leaderboard</Link></li>
