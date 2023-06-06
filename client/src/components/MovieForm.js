@@ -88,8 +88,6 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
                     onClose={handleCloseCongratulationsModal}
                 />
             </div>
-            <button onClick={handleWin}>Win</button>
-            <button onClick={handleLose}>Lose</button>
         </>
     );
 };

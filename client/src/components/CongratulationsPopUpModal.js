@@ -34,6 +34,7 @@ function CongratulationsPopupModal({ isOpen, onClose }) {
         onRequestClose={onClose}
         contentLabel="Popup Modal"
         style={popUpStyle}
+        
         >
         <PopupBox>
             <Congrats>Congratulations!</Congrats>

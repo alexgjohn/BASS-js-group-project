@@ -56,7 +56,7 @@ function App() {
     }, [])
 
     useEffect(() => {
-        assignNewUser()
+        assignCurrentUser()
     }, [users])
 
     if (users.length) {
@@ -91,7 +91,7 @@ function App() {
         setUsers(updatedUsers)
     }
 
-    const assignNewUser = () => {
+    const assignCurrentUser = () => {
         const newPlayerIndex = (users.length - 1)
         setCurrentUser(users[newPlayerIndex])
     }
