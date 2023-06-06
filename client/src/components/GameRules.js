@@ -8,7 +8,7 @@ const GameRules = () => {
     margin-left: 30%;
     `
     const Heading = styled.h2`
-    text-align: center;
+    text-align: left;
     `
 
     return (
