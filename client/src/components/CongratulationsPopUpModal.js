@@ -1,9 +1,7 @@
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
 
-function CongratulationsPopupModal({ isOpen, onClose }) {
-
-    const PopupBox = styled.article`
+const PopupBox = styled.article`
     /* text-align: center; */
     `
     
@@ -24,9 +22,20 @@ function CongratulationsPopupModal({ isOpen, onClose }) {
           bottom: 'auto',
           transform: 'translate(-50%, -50%)',
         },
-
       };
 
+const SmallerPoster = styled.img`
+    width: 150px;
+    height: 240px;
+`
+
+
+function CongratulationsPopupModal({ targetMovie, isOpen, onClose }) {
+
+
+    const movieTitle = targetMovie ? targetMovie.original_title : '';
+
+    const posterPath = targetMovie ? `https://image.tmdb.org/t/p/original${targetMovie.poster_path}` : null
 
     return (
         <ReactModal
@@ -34,11 +43,14 @@ function CongratulationsPopupModal({ isOpen, onClose }) {
         onRequestClose={onClose}
         contentLabel="Popup Modal"
         style={popUpStyle}
+        ariaHideApp={false}
+        
         >
         <PopupBox>
             <Congrats>Congratulations!</Congrats>
-            <p>Play next game?</p>
-            <p>Exit</p>
+            <p>The movie was {movieTitle}</p>
+            {posterPath && <SmallerPoster src={posterPath} />}
+            <p>Play another game</p>
             <button onClick={onClose}>Close</button>
         </PopupBox>
         </ReactModal>

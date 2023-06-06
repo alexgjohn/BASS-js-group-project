@@ -63,8 +63,9 @@ const InputGuessesBox = ({ movies, selectedOption, setSelectedOption, onGuessSub
                         )}
                         // was unsure about this so read about it
                         // 
-                        renderInput={(params) => (<TextField {...params} label="please type in your movie title guess and click submit"
+                        renderInput={(params) => (<TextField {...params} label="please type in your movie title guess and click submit" required
                         />
+
                         )}
                     />
                     <button type="submit">Submit Guess</button>

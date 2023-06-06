@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import InputGuessesBox from './InputGuessesBox';
 import GuessesAttempted from './GuessesAttempted';
 import CongratulationsPopupModal from './CongratulationsPopUpModal';
@@ -13,8 +13,14 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
     const [isCongratulationsModalOpen, setIsCongratulationsModalOpen] = useState(false);
     const [isGameOverModalOpen, setIsGameOverModalOpen] = useState(false);
 
+
     // error message state for when button is clicked but nothing is selected or typed
     const [emptyInputErrorMessage, setEmptyInputErrorMessage] = useState('');
+
+
+    useEffect(() => {
+        isGameEnded()
+    }, [guesses])
 
 
     const handleOpenCongratulationsModal = () => {
@@ -32,6 +38,11 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
     const handleCloseGameOverModal = () => {
         setIsGameOverModalOpen(false);
     };
+
+    const isGameEnded = () => {
+        if (guesses.length === 3) {
+        handleOpenGameOverModal()
+    }}
 
     const handleWin = () => {
         console.log('You win!');
@@ -61,7 +72,7 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
                 handleWin()
             } else {
                 console.log('Whoops wrong!!');
-                handleOpenGameOverModal();
+                // handleOpenGameOverModal();
                 handleLose()
             }
 
@@ -77,14 +88,24 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
     return (
         <>
             <h2>This is the MovieForm (contains InputGuessesBox and GuessesAttempted)</h2>
-            <InputGuessesBox movies={movies} setSelectedOption={setSelectedOption} handleGuessSubmit={handleGuessSubmit}
-                selectedOption={selectedOption} emptyInputErrorMessage={emptyInputErrorMessage} setEmptyInputErrorMessage={setEmptyInputErrorMessage}
+            {guesses.length === 0 ? <h3>You have 3 guesses remaining</h3> : null}
+            {guesses.length === 1 ? <h3>You have 2 guesses remaining</h3> : null}
+            {guesses.length === 2 ? <h3>You have 1 guess remaining</h3> : null}
+            {guesses.length === 3 ? <h3>You have 0 guesses remaining</h3> : null}
+            <InputGuessesBox
+                movies={movies}
+                setSelectedOption={setSelectedOption}
+                handleGuessSubmit={handleGuessSubmit}
+                selectedOption={selectedOption}
+                emptyInputErrorMessage={emptyInputErrorMessage}
+                setEmptyInputErrorMessage={setEmptyInputErrorMessage}
             />
             <GuessesAttempted guesses={guesses} targetMovie={targetMovie}/>
 
             <div>
-                <GameOverPopupModal isOpen={isGameOverModalOpen} onClose={handleCloseGameOverModal} />
+                <GameOverPopupModal targetMovie={targetMovie} isOpen={isGameOverModalOpen} onClose={handleCloseGameOverModal} />
                 <CongratulationsPopupModal
+                    targetMovie={targetMovie}
                     isOpen={isCongratulationsModalOpen}
                     onClose={handleCloseCongratulationsModal}
                 />
