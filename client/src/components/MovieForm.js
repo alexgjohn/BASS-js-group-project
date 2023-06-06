@@ -6,9 +6,10 @@ import GameOverPopupModal from './GameOverPopUpModal';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const MovieForm = ({ movies, targetMovie, updateUserStats, user }) => {
+
+const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGuesses}) => {
     const [selectedOption, setSelectedOption] = useState(null);
-    const [guesses, setGuesses] = useState([]);
+    
     const [isCongratulationsModalOpen, setIsCongratulationsModalOpen] = useState(false);
     const [isGameOverModalOpen, setIsGameOverModalOpen] = useState(false);
 
@@ -53,13 +54,16 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user }) => {
             if (selectedOption === targetMovie.original_title) {
                 console.log('correct!');
                 handleOpenCongratulationsModal();
+                handleWin()
             } else {
                 console.log('Whoops wrong!!');
                 handleOpenGameOverModal();
+                handleLose()
             }
 
             // this updates the state guesses has, gets the previous guesses value then creates another new array by taking the old guesses and adding them with a new guess that's entered
             setGuesses((prevGuesses) => [...prevGuesses, selectedOption]);
+
             setSelectedOption(null);
             // setSelectedOption is null so that it's empty every time a new guess is entered
             // updates the guesses state as it adds the new guess to the array and puts the old and new guesses together then empties out the input box

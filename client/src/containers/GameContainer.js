@@ -1,4 +1,4 @@
-// import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 // import Header from '../components/Header';
 import MoviePoster from '../components/MoviePoster';
 import MovieForm from '../components/MovieForm';
@@ -10,7 +10,12 @@ import MovieForm from '../components/MovieForm';
 // import GameOverPopupModal from '../components/GameOverPopUpModal';
 
 
-const GameContainer = ({movies, targetMovie, users, updateUserStats}) => {
+const GameContainer = ({movies, targetMovie, currentUser, updateUserStats}) => {
+
+    const [guesses, setGuesses] = useState([]);
+
+    
+
 
 
 
@@ -22,8 +27,8 @@ const GameContainer = ({movies, targetMovie, users, updateUserStats}) => {
         <h1>This is the GameContainer</h1>
         {/* <Header /> */}
         {/* <UserForm createUser={createUser}/> */}
-        <MoviePoster targetMovie={targetMovie}/>
-        <MovieForm movies={movies} targetMovie={targetMovie} updateUserStats={updateUserStats} user={users[0]}/>
+        <MoviePoster targetMovie={targetMovie} guesses={guesses}/>
+        <MovieForm movies={movies} targetMovie={targetMovie} updateUserStats={updateUserStats} user={currentUser} guesses={guesses} setGuesses={setGuesses}/>
         {/* <LeaderBoard users={users}/> */}
         {/* <Footer /> */}
         </>

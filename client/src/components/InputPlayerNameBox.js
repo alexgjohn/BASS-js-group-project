@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const InputPlayerNameBox = () => {
+const InputPlayerNameBox = ({createUser}) => {
     const [playerName, setPlayerName] = useState('');
     const navigate = useNavigate();
 
@@ -9,18 +9,35 @@ const InputPlayerNameBox = () => {
         setPlayerName(e.target.value);
     };
 
-    const handleButtonClick = () => {
-        // need to put logic hereeeee
-
-        // https://reactnavigation.org/docs/navigating/#:~:text=The%20navigate%20function%20roughly%20means,that%20it%20would%20do%20nothing
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        createUser({ //will send a post request to the database and add a user
+            userName: playerName,
+            wins: 0,
+            played: 0
+        });
+        setPlayerName("");
         navigate(`/game?name=${playerName}`);
     };
 
     return (
-        <div>
-            <input type="text" value={playerName} onChange={handleInputChange} />
-            <button onClick={handleButtonClick}>Start Game</button>
+        <form onSubmit={handleSubmit}>
+        <h1>Add a Username</h1>
+        <div className="group">
+            <label htmlFor="name">Username:</label>
+            <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            value={playerName} 
+            required 
+            onChange={handleInputChange}
+            />
         </div>
+        
+
+        <input type="submit" name="submit" value="Save" />
+        </form>
     );
 };
 

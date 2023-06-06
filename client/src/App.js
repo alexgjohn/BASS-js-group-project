@@ -37,6 +37,7 @@ function App() {
     const [currentPage, setCurrentPage] = useState(randomPage)
     const [targetMovie, setTargetMovie] = useState(null)
     const [users, setUsers] = useState([])
+    const [currentUser, setCurrentUser] = useState(users[0])
 
     //use effect runs on mount and whenever the current page is changed with setCurrentPage
     useEffect(() => {
@@ -53,6 +54,10 @@ function App() {
         getUsers()
             .then(allUsers => setUsers(allUsers))
     }, [])
+
+    useEffect(() => {
+        assignCurrentUser()
+    }, [users])
 
     if (users.length) {
         console.log("All users:", users)
@@ -71,13 +76,10 @@ function App() {
     }
 
 
-    const handleNextPage = () => {
-        setCurrentPage(randomPage)
-    }
-
     const createUser = newUser => {
         postUser(newUser)
             .then(savedUser => setUsers([...users, savedUser]))
+
     }
 
     const updateUserStats = updatedStats => {
@@ -89,6 +91,11 @@ function App() {
         setUsers(updatedUsers)
     }
 
+    const assignCurrentUser = () => {
+        const newPlayerIndex = (users.length - 1)
+        setCurrentUser(users[newPlayerIndex])
+    }
+
 
 
     return (
@@ -97,9 +104,9 @@ function App() {
                 <NavBar />
                 <Routes>
                     <Route exact path="/" element={<HomePage />} />
-                    <Route path="/play" element={<InputPlayerNameBox />} />
+                    <Route path="/play" element={<InputPlayerNameBox createUser={createUser}/>} />
                     <Route path="/game-rules" element={<GameRules />} />
-                    <Route path="game" element={<GameContainer movies={movies} targetMovie={targetMovie} users={users} updateUserStats={updateUserStats} />} />
+                    <Route path="game" element={<GameContainer movies={movies} targetMovie={targetMovie} currentUser={currentUser} updateUserStats={updateUserStats} />} />
                     <Route path="/leaderboard" element={<LeaderBoard users={users} />} />
                     <Route path="*" element={<ErrorPage />} />
 
