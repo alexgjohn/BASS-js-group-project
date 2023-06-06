@@ -95,8 +95,9 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
             <GuessesAttempted guesses={guesses} targetMovie={targetMovie}/>
 
             <div>
-                <GameOverPopupModal isOpen={isGameOverModalOpen} onClose={handleCloseGameOverModal} />
+                <GameOverPopupModal targetMovie={targetMovie} isOpen={isGameOverModalOpen} onClose={handleCloseGameOverModal} />
                 <CongratulationsPopupModal
+                    targetMovie={targetMovie}
                     isOpen={isCongratulationsModalOpen}
                     onClose={handleCloseCongratulationsModal}
                 />

@@ -26,7 +26,16 @@ const PopupBox = styled.article`
 
       };
 
-function GameOverPopupModal({ isOpen, onClose }) {
+const SmallerPoster = styled.img`
+    width: 150px;
+    height: 240px;
+`
+
+function GameOverPopupModal({ targetMovie, isOpen, onClose }) {
+
+    const movieTitle = targetMovie ? targetMovie.original_title : '';
+
+    const posterPath = targetMovie ? `https://image.tmdb.org/t/p/original${targetMovie.poster_path}` : null
 
     return (
         <ReactModal
@@ -40,6 +49,8 @@ function GameOverPopupModal({ isOpen, onClose }) {
         <PopupBox>
             <Congrats>Game Over!</Congrats>
             <p>Play next game?</p>
+            <p>The movie is <b>{movieTitle}</b></p>
+            {posterPath && <SmallerPoster src={posterPath} />}
             <p>Exit</p>
             <button onClick={onClose}>Close</button>
         </PopupBox>

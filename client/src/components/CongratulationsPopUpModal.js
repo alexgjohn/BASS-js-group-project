@@ -24,8 +24,18 @@ const PopupBox = styled.article`
         },
       };
 
+const SmallerPoster = styled.img`
+    width: 150px;
+    height: 240px;
+`
 
-function CongratulationsPopupModal({ isOpen, onClose }) {
+
+function CongratulationsPopupModal({ targetMovie, isOpen, onClose }) {
+
+
+    const movieTitle = targetMovie ? targetMovie.original_title : '';
+
+    const posterPath = targetMovie ? `https://image.tmdb.org/t/p/original${targetMovie.poster_path}` : null
 
     return (
         <ReactModal
@@ -38,6 +48,8 @@ function CongratulationsPopupModal({ isOpen, onClose }) {
         >
         <PopupBox>
             <Congrats>Congratulations!</Congrats>
+            <p>The movie was {movieTitle}</p>
+            {posterPath && <SmallerPoster src={posterPath} />}
             <p>Play another game</p>
             <button onClick={onClose}>Close</button>
         </PopupBox>
