@@ -1,9 +1,7 @@
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
 
-function CongratulationsPopupModal({ isOpen, onClose }) {
-
-    const PopupBox = styled.article`
+const PopupBox = styled.article`
     /* text-align: center; */
     `
     
@@ -24,9 +22,10 @@ function CongratulationsPopupModal({ isOpen, onClose }) {
           bottom: 'auto',
           transform: 'translate(-50%, -50%)',
         },
-
       };
 
+
+function CongratulationsPopupModal({ isOpen, onClose }) {
 
     return (
         <ReactModal
@@ -34,11 +33,12 @@ function CongratulationsPopupModal({ isOpen, onClose }) {
         onRequestClose={onClose}
         contentLabel="Popup Modal"
         style={popUpStyle}
+        ariaHideApp={false}
+        
         >
         <PopupBox>
             <Congrats>Congratulations!</Congrats>
-            <p>Play next game?</p>
-            <p>Exit</p>
+            <p>Play another game</p>
             <button onClick={onClose}>Close</button>
         </PopupBox>
         </ReactModal>

@@ -8,20 +8,12 @@ import MovieForm from '../components/MovieForm';
 // import UserForm from '../components/UserForm';
 // import CongratulationsPopupModal from '../components/CongratulationsPopUpModal';
 // import GameOverPopupModal from '../components/GameOverPopUpModal';
+import styled from 'styled-components';
 
 
 const GameContainer = ({movies, targetMovie, currentUser, updateUserStats}) => {
 
     const [guesses, setGuesses] = useState([]);
-
-    
-
-
-
-
-
-
-
     return (
         <>
         <h1>This is the GameContainer</h1>

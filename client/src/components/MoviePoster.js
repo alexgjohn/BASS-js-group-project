@@ -6,17 +6,25 @@ const StyledImage1 = styled.img`
     width: 500px;
     height: 800px;
     clip-path: circle(20%);
+    transition-delay: 1s;
+    transition: all 1s ease-out;
 `
 
 const StyledImage2 = styled.img`
     width: 500px;
     height: 800px;
     clip-path: circle(40%);
+    transition-delay: 1s;
+    transition: all 1s ease-out;
+
 `
 const StyledImage3 = styled.img`
     width: 500px;
     height: 800px;
     clip-path: circle(60%);
+    transition-delay: 1s;
+    transition: all 1s ease-out;
+
 `
 const StyledImage4 = styled.img`
     width: 500px;
