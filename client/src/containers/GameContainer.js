@@ -1,4 +1,4 @@
-// import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 // import Header from '../components/Header';
 import MoviePoster from '../components/MoviePoster';
 import MovieForm from '../components/MovieForm';
@@ -12,6 +12,11 @@ import MovieForm from '../components/MovieForm';
 
 const GameContainer = ({movies, targetMovie, users, updateUserStats}) => {
 
+    
+
+    
+
+
 
 
 
@@ -22,7 +27,7 @@ const GameContainer = ({movies, targetMovie, users, updateUserStats}) => {
         <h1>This is the GameContainer</h1>
         {/* <Header /> */}
         {/* <UserForm createUser={createUser}/> */}
-        <MoviePoster targetMovie={targetMovie}/>
+        <MoviePoster targetMovie={targetMovie} />
         <MovieForm movies={movies} targetMovie={targetMovie} updateUserStats={updateUserStats} user={users[0]}/>
         {/* <LeaderBoard users={users}/> */}
         {/* <Footer /> */}
