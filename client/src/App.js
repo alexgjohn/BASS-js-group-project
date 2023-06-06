@@ -37,7 +37,7 @@ function App() {
     const [currentPage, setCurrentPage] = useState(randomPage)
     const [targetMovie, setTargetMovie] = useState(null)
     const [users, setUsers] = useState([])
-    const [currentUser, setCurrentUser] = useState(users[0])
+    const [currentUser, setCurrentUser] = useState({})
 
     //use effect runs on mount and whenever the current page is changed with setCurrentPage
     useEffect(() => {
@@ -55,9 +55,9 @@ function App() {
             .then(allUsers => setUsers(allUsers))
     }, [])
 
-    useEffect(() => {
-        assignCurrentUser()
-    }, [users])
+    // useEffect(() => {
+    //     assignCurrentUser()
+    // }, [users])
 
     if (users.length) {
         console.log("All users:", users)
@@ -78,7 +78,11 @@ function App() {
 
     const createUser = newUser => {
         postUser(newUser)
-            .then(savedUser => setUsers([...users, savedUser]))
+            .then(savedUser =>{
+                    console.log({savedUser})
+                    setUsers([...users, savedUser])
+                    setCurrentUser(savedUser)
+                })
 
     }
 
@@ -91,10 +95,10 @@ function App() {
         setUsers(updatedUsers)
     }
 
-    const assignCurrentUser = () => {
-        const newPlayerIndex = (users.length - 1)
-        setCurrentUser(users[newPlayerIndex])
-    }
+    // const assignCurrentUser = () => {
+    //     const newPlayerIndex = (users.length - 1)
+    //     setCurrentUser(users[newPlayerIndex])
+    // }
 
 
 

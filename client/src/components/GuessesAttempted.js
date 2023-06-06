@@ -11,6 +11,7 @@ const StyledGuessesContainer = styled.div`
 
 
 const StyledGuessListItem = styled.li`
+/* color: ${({ isCorrect }) => (isCorrect ? 'green' : 'inherit')}; */
 color: ${({ isCorrect }) => (isCorrect ? 'green' : 'red')};
 list-style-type: none;
 
@@ -24,7 +25,7 @@ const GuessesAttempted = ({ guesses, targetMovie }) => {
                 <ul>
                     {guesses.map((guess, index) => (
                         <StyledGuessListItem
-                            key={index} isCorrect={guess === targetMovie}>{guess}
+                            key={index} guess={guess} targetMovie={targetMovie} isCorrect={guess === targetMovie}>{guess}
                         </StyledGuessListItem>
                     ))}
                 </ul>

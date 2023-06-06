@@ -14,7 +14,6 @@ export const postUser = (payload) => {
         headers: {'Content-Type': 'application/json'}
     })
     .then(res => res.json())
-    .then(result => console.log("We got back:", result._id))
 }
 
 //delete a user, if we need to
