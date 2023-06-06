@@ -11,11 +11,15 @@ import { createTheme, ThemeProvider } from '@mui/system';
 
 // I need to pass in state as a prop here movie title, when selected, set selected func
 
-const InputGuessesBox = ({ movies, selectedOption, setSelectedOption, onGuessSubmit, handleGuessSubmit}) => {
+const InputGuessesBox = ({ movies, selectedOption, setSelectedOption, onGuessSubmit, handleGuessSubmit, emptyInputErrorMessage, setEmptyInputErrorMessage }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleGuessSubmit(selectedOption.original_title); // passes the selectedOption as a string
-};
+        if (selectedOption) {
+            handleGuessSubmit(selectedOption.original_title);
+        } else {
+            setEmptyInputErrorMessage('please choose a movie title before clicking the submit button');
+        }
+    };
         // console.log(selectedOption)
         // onGuessSubmit(selectedOption);
 

@@ -13,6 +13,10 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
     const [isCongratulationsModalOpen, setIsCongratulationsModalOpen] = useState(false);
     const [isGameOverModalOpen, setIsGameOverModalOpen] = useState(false);
 
+    // error message state for when button is clicked but nothing is selected or typed
+    const [emptyInputErrorMessage, setEmptyInputErrorMessage] = useState('');
+
+
     const handleOpenCongratulationsModal = () => {
         setIsCongratulationsModalOpen(true);
     };
@@ -73,11 +77,8 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
     return (
         <>
             <h2>This is the MovieForm (contains InputGuessesBox and GuessesAttempted)</h2>
-            <InputGuessesBox
-                movies={movies}
-                setSelectedOption={setSelectedOption}
-                handleGuessSubmit={handleGuessSubmit}
-                selectedOption={selectedOption}
+            <InputGuessesBox movies={movies} setSelectedOption={setSelectedOption} handleGuessSubmit={handleGuessSubmit}
+                selectedOption={selectedOption} emptyInputErrorMessage={emptyInputErrorMessage} setEmptyInputErrorMessage={setEmptyInputErrorMessage}
             />
             <GuessesAttempted guesses={guesses} targetMovie={targetMovie}/>
 
