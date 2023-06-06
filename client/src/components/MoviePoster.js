@@ -18,13 +18,17 @@ const StyledImage3 = styled.img`
     height: 800px;
     clip-path: circle(60%);
 `
+const StyledImage4 = styled.img`
+    width: 500px;
+    height: 800px;
+`
 
 
 
-const MoviePoster = ({targetMovie}) => {
+const MoviePoster = ({targetMovie, guesses}) => {
 
     const [imageClass, setImageClass] = useState('StyledImage1');
-    const classOptions = ['StyledImage1', 'StyledImage2', 'StyledImage3'];
+    const classOptions = ['StyledImage1', 'StyledImage2', 'StyledImage3', 'StyledImage4'];
 
     const handleClassChange = () => {
         const currentIndex = classOptions.indexOf(imageClass);
@@ -32,6 +36,9 @@ const MoviePoster = ({targetMovie}) => {
         const nextClass = classOptions[nextIndex];
         setImageClass(nextClass);
     }
+
+    const numberOfGuesses = guesses.length
+
 
 
     if (targetMovie === undefined){
@@ -51,9 +58,10 @@ const MoviePoster = ({targetMovie}) => {
     return(
         <>
             <div className="poster-container">
-                <StyledImage1 src={posterPath}/>
-                <StyledImage2 src={posterPath}/>
-                <StyledImage3 src={posterPath}/>
+                {numberOfGuesses === 0? <StyledImage1 src={posterPath}/> : null}
+                {numberOfGuesses === 1? <StyledImage2 src={posterPath}/> : null}
+                {numberOfGuesses === 2? <StyledImage3 src={posterPath}/> : null}
+                {numberOfGuesses === 3? <StyledImage4 src={posterPath}/> : null}
 
                 
 

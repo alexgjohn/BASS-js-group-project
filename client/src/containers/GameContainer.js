@@ -12,7 +12,7 @@ import MovieForm from '../components/MovieForm';
 
 const GameContainer = ({movies, targetMovie, users, updateUserStats}) => {
 
-    
+    const [guesses, setGuesses] = useState([]);
 
     
 
@@ -27,8 +27,8 @@ const GameContainer = ({movies, targetMovie, users, updateUserStats}) => {
         <h1>This is the GameContainer</h1>
         {/* <Header /> */}
         {/* <UserForm createUser={createUser}/> */}
-        <MoviePoster targetMovie={targetMovie} />
-        <MovieForm movies={movies} targetMovie={targetMovie} updateUserStats={updateUserStats} user={users[0]}/>
+        <MoviePoster targetMovie={targetMovie} guesses={guesses}/>
+        <MovieForm movies={movies} targetMovie={targetMovie} updateUserStats={updateUserStats} user={users[0]} guesses={guesses} setGuesses={setGuesses}/>
         {/* <LeaderBoard users={users}/> */}
         {/* <Footer /> */}
         </>

@@ -7,9 +7,9 @@ import GameOverPopupModal from './GameOverPopUpModal';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
-const MovieForm = ({ movies, targetMovie, updateUserStats, user }) => {
+const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGuesses}) => {
     const [selectedOption, setSelectedOption] = useState(null);
-    const [guesses, setGuesses] = useState([]);
+    
     const [isCongratulationsModalOpen, setIsCongratulationsModalOpen] = useState(false);
     const [isGameOverModalOpen, setIsGameOverModalOpen] = useState(false);
 
