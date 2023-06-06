@@ -8,7 +8,7 @@ import GameOverPopupModal from './GameOverPopUpModal';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
-const MovieForm = ({movies, targetMovie, updateUserStats, user}) => {
+const MovieForm = ({movies, targetMovie, updateUserStats, user, handleClassChange}) => {
 
     const [selectedOption, setSelectedOption] = useState(null)
 
@@ -27,7 +27,6 @@ const MovieForm = ({movies, targetMovie, updateUserStats, user}) => {
     const handleCloseGameOverModal = () => {
         setIsGameOverModalOpen(false);
     };
-
 
 
     const handleWin = () => {
@@ -60,6 +59,7 @@ const MovieForm = ({movies, targetMovie, updateUserStats, user}) => {
                 console.log("Whoops wrong!!")
                 handleOpenGameOverModal()
             }
+            handleClassChange()
         // setGuesses((prevGuesses) => [...prevGuesses, selectedOption]);
             setSelectedOption(null);
         }
