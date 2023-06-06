@@ -76,6 +76,7 @@ function App() {
     }
 
     const createUser = newUser => {
+        console.log("New player created!")
         postUser(newUser)
             .then(savedUser => setUsers([...users, savedUser]))
     }
@@ -97,7 +98,7 @@ function App() {
                 <NavBar />
                 <Routes>
                     <Route exact path="/" element={<HomePage />} />
-                    <Route path="/play" element={<InputPlayerNameBox />} />
+                    <Route path="/play" element={<InputPlayerNameBox createUser={createUser}/>} />
                     <Route path="/game-rules" element={<GameRules />} />
                     <Route path="game" element={<GameContainer movies={movies} targetMovie={targetMovie} users={users} updateUserStats={updateUserStats} />} />
                     <Route path="/leaderboard" element={<LeaderBoard users={users} />} />
