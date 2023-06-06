@@ -17,6 +17,8 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
     // error message state for when button is clicked but nothing is selected or typed
     const [emptyInputErrorMessage, setEmptyInputErrorMessage] = useState('');
 
+    const [inputBoxVisible, setInputBoxVisible] = useState(true)
+
 
     useEffect(() => {
         isGameEnded()
@@ -25,14 +27,17 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
 
     const handleOpenCongratulationsModal = () => {
         setIsCongratulationsModalOpen(true);
+        setInputBoxVisible(false)
     };
 
     const handleCloseCongratulationsModal = () => {
         setIsCongratulationsModalOpen(false);
+        setIsGameOverModalOpen(false);
     };
 
     const handleOpenGameOverModal = () => {
         setIsGameOverModalOpen(true);
+        setInputBoxVisible(false)
     };
 
     const handleCloseGameOverModal = () => {
@@ -92,14 +97,17 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
             {guesses.length === 1 ? <h3>You have 2 guesses remaining</h3> : null}
             {guesses.length === 2 ? <h3>You have 1 guess remaining</h3> : null}
             {guesses.length === 3 ? <h3>You have 0 guesses remaining</h3> : null}
-            <InputGuessesBox
+            {inputBoxVisible && (
+                <InputGuessesBox
                 movies={movies}
                 setSelectedOption={setSelectedOption}
                 handleGuessSubmit={handleGuessSubmit}
                 selectedOption={selectedOption}
                 emptyInputErrorMessage={emptyInputErrorMessage}
                 setEmptyInputErrorMessage={setEmptyInputErrorMessage}
-            />
+                isCongratulationsModalOpen={isCongratulationsModalOpen}
+                />
+            )}
             <GuessesAttempted guesses={guesses} targetMovie={targetMovie}/>
 
             <div>
