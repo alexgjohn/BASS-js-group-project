@@ -95,6 +95,10 @@ function App() {
         setUsers(updatedUsers)
     }
 
+    const getReturningUser = (returningUser) => {
+        setCurrentUser(returningUser)
+    }
+
     // const assignCurrentUser = () => {
     //     const newPlayerIndex = (users.length - 1)
     //     setCurrentUser(users[newPlayerIndex])
@@ -108,7 +112,7 @@ function App() {
                 <NavBar />
                 <Routes>
                     <Route exact path="/" element={<HomePage />} />
-                    <Route path="/play" element={<InputPlayerNameBox createUser={createUser}/>} />
+                    <Route path="/play" element={<InputPlayerNameBox users={users} createUser={createUser} getReturningUser={getReturningUser}/>} />
                     <Route path="/game-rules" element={<GameRules />} />
                     <Route path="game" element={<GameContainer movies={movies} targetMovie={targetMovie} currentUser={currentUser} updateUserStats={updateUserStats} />} />
                     <Route path="/leaderboard" element={<LeaderBoard users={users} />} />
