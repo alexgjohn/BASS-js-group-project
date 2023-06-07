@@ -1,10 +1,10 @@
-#Welcome to Bass Games, we are students of CodeClan who collaborated on a JS React fullstack project. 
+# Welcome to Bass Games, we are students of CodeClan who collaborated on a JS React fullstack project. 
 
-##Collaborators: Alex John, Sobia Ahmed, Sean Allen and Becky Entwistle.
+## Collaborators: Alex John, Sobia Ahmed, Sean Allen and Becky Entwistle.
 
 Our idea was to make a Movie Guessing Game using a movie database API, by revealing only a portion of the movie poster and letting the player make a guess of the title. They get 3 guesses and each incorrect guess reveals a little more of the poster.
 
-**Special thanks to John McNeill, Jack Dickson, Alex Bazlinton, James Drysdale and Colette Dufficy.**
+** Special thanks to John McNeill, Jack Dickson, Alex Bazlinton, James Drysdale and Colette Dufficy. **
 
 We used an API that The Movie Database (TMDB) provides [TMDB](https://www.themoviedb.org/)
 If the API key has expired, you can create your own account on TMDB and request an API key very easily. Just edit the App.js file with your new API.
@@ -30,7 +30,7 @@ npm start
 ````
 REACT should open up in your browser (we recommend you use Chrome). 
 
-#Play and enjoy!
+# Play and enjoy!
 
 
 Things we added to our dependencies:
