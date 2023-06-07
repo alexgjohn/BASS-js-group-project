@@ -112,7 +112,7 @@ function App() {
                 <NavBar />
                 <Routes>
                     <Route exact path="/" element={<HomePage />} />
-                    <Route path="/play" element={<InputPlayerNameBox users={users} createUser={createUser} getReturningUser={getReturningUser}/>} />
+                    <Route path="/play" element={<InputPlayerNameBox users={users} createUser={createUser} getReturningUser={getReturningUser} getMovies={getMovies} randomPage={randomPage}/>} />
                     <Route path="/game-rules" element={<GameRules />} />
                     <Route path="game" element={<GameContainer movies={movies} targetMovie={targetMovie} currentUser={currentUser} updateUserStats={updateUserStats} />} />
                     <Route path="/leaderboard" element={<LeaderBoard users={users} />} />

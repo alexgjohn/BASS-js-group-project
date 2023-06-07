@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const InputPlayerNameBox = ({users, createUser, getReturningUser}) => {
+const InputPlayerNameBox = ({users, createUser, getReturningUser, getMovies, randomPage}) => {
     const [playerName, setPlayerName] = useState('');
     const [returningPlayer, setReturningPlayer] = useState({})
     const navigate = useNavigate();
@@ -24,6 +24,7 @@ const InputPlayerNameBox = ({users, createUser, getReturningUser}) => {
             played: 0
         });
         setPlayerName("");
+        getMovies(randomPage)
         navigate(`/game?name=${playerName}`);
     };
 
@@ -39,6 +40,7 @@ const InputPlayerNameBox = ({users, createUser, getReturningUser}) => {
     const handleReturningPlayerSubmit = (e) => {
         e.preventDefault()
         getReturningUser(returningPlayer)
+        getMovies(randomPage)
         navigate(`/game?name=${returningPlayer.userName}`)
         // navigate(`/game?id=${e.target.value}`)
 
