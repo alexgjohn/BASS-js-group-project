@@ -5,6 +5,8 @@ import styled, { keyframes } from "styled-components"
 const StyledContainer = styled.div`
     margin-top: 10px;
     margin: 0;
+    border: 5px solid rgb(105, 27, 58);
+
 `
 
 const slowCircleAnimation1 = keyframes`

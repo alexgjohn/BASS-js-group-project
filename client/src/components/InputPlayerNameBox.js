@@ -75,6 +75,12 @@ const InputPlayerNameBox = ({users, createUser, getReturningUser, getMovies, ran
         </div>
             <input type="submit" name="submit" value="Play!" />
         </form>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
         </>
     );
 };

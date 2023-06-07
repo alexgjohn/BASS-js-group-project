@@ -25,7 +25,6 @@ const StyledFormContainer = styled.form`
     .submit-button {
         display: flex;
         flex-direction: row;
-        align-items: center;
         margin-left: 10px;
         padding: 30px;
         width: 140px;
@@ -35,6 +34,8 @@ const StyledFormContainer = styled.form`
         color: rgb(255, 255, 255);
         border-radius: 8px;
         font-size: 20px;
+        margin-top: 20px;
+        text-align: center;
     }
 
     .disabled-option {
