@@ -50,7 +50,6 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
     }}
 
     const handleWin = () => {
-        console.log('You win!');
         updateUserStats({
             _id: user._id,
             userName: user.userName,
@@ -60,7 +59,6 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
     };
 
     const handleLose = () => {
-        console.log('You lose!');
         updateUserStats({
             _id: user._id,
             userName: user.userName,
@@ -72,12 +70,9 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
     const handleGuessSubmit = (selectedOption) => {
         if (selectedOption) {
             if (selectedOption === targetMovie.original_title) {
-                console.log('correct!');
                 handleOpenCongratulationsModal();
                 handleWin()
             } else {
-                console.log('Whoops wrong!!');
-                // handleOpenGameOverModal();
                 handleLose()
             }
 

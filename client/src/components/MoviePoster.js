@@ -20,26 +20,22 @@ const slowCircleAnimation2 = keyframes`
         clip-path: circle(15% at 50% 50%);
     }
     to {
-        clip-path: circle(30% at 50% 50%);
+        clip-path: circle(25% at 50% 50%);
     }
 `
 const slowCircleAnimation3 = keyframes`
     from {
-        clip-path: circle(30% at 50% 50%);
+        clip-path: circle(25% at 50% 50%);
     }
     to {
-        clip-path: circle(50% at 50% 50%);
+        clip-path: circle(35% at 50% 50%);
     }
 `
 
 const StyledImage1 = styled.img`
     width: 500px;
     height: 800px;
-    clip-path: circle(20%);
-    transition-delay: 1s;
-    transition: all 1s ease-out;
     margin: 0;
-
     clip-path: circle(15%);
     animation: ${slowCircleAnimation1} 3s ease-in alternate;
 `
@@ -47,21 +43,15 @@ const StyledImage1 = styled.img`
 const StyledImage2 = styled.img`
     width: 500px;
     height: 800px;
-    clip-path: circle(40%);
-    transition-delay: 1s;
-    transition: all 1s ease-out;
     margin: 0;
-    clip-path: circle(30%);
+    clip-path: circle(25%);
     animation: ${slowCircleAnimation2} 3s ease-in alternate;
 `
 const StyledImage3 = styled.img`
     width: 500px;
     height: 800px;
-    clip-path: circle(60%);
-    transition-delay: 1s;
-    transition: all 1s ease-out;
     margin: 0;
-    clip-path: circle(50%);
+    clip-path: circle(35%);
     animation: ${slowCircleAnimation3} 3s ease-in alternate;
 `
 

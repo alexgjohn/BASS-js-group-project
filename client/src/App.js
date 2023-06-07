@@ -7,13 +7,11 @@ import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
 import GameContainer from './containers/GameContainer'; // Play page in navbar
 import GameRules from './components/GameRules';
-import LeaderBoardContainer from './containers/LeaderBoardContainer';
+import LeaderBoardContainer from './containers/CanDeleteLeaderBoardContainer';
 import ErrorPage from './components/ErrorPage';
 import InputPlayerNameBox from './components/InputPlayerNameBox';
 import Footer from './components/Footer';
-
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
 import MoviePoster from './components/MoviePoster';
 import MovieForm from './components/MovieForm';
 import LeaderBoard from './components/LeaderBoard';
@@ -46,7 +44,6 @@ function App() {
 
     //this use effect runs on mount and whenever the movie list is updated with setMovies
     useEffect(() => {
-        console.log("All movie titles:", movies.map(movie => movie.original_title))
         assignTargetMovie()
     }, [movies])
 
@@ -55,13 +52,9 @@ function App() {
             .then(allUsers => setUsers(allUsers))
     }, [])
 
-    // useEffect(() => {
-    //     assignCurrentUser()
-    // }, [users])
-
-    if (users.length) {
-        console.log("All users:", users)
-    }
+    // if (users.length) {
+    //     console.log("All users:", users)
+    // }
 
 
     const getMovies = function (page) {
@@ -79,7 +72,6 @@ function App() {
     const createUser = newUser => {
         postUser(newUser)
             .then(savedUser =>{
-                    console.log({savedUser})
                     setUsers([...users, savedUser])
                     setCurrentUser(savedUser)
                 })
