@@ -4,7 +4,7 @@
 
 Our idea was to make a Movie Guessing Game using a movie database API, by revealing only a portion of the movie poster and letting the player make a guess of the title. They get 3 guesses and each incorrect guess reveals a little more of the poster.
 
-** Special thanks to John McNeill, Jack Dickson, Alex Bazlinton, James Drysdale and Colette Dufficy. **
+**Special thanks to John McNeill, Jack Dickson, Alex Bazlinton, James Drysdale and Colette Dufficy.**
 
 We used an API that The Movie Database provides  - [TMDB](https://www.themoviedb.org/)
 If the API key has expired, you can create your own account on TMDB and request an API key very easily. Just edit the App.js file with your new API.
