@@ -13,7 +13,6 @@ import InputPlayerNameBox from './components/InputPlayerNameBox';
 import Footer from './components/Footer';
 
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
 import MoviePoster from './components/MoviePoster';
 import MovieForm from './components/MovieForm';
 import LeaderBoard from './components/LeaderBoard';
