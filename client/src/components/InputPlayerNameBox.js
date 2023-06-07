@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const InputPlayerNameBox = ({createUser}) => {
+const InputPlayerNameBox = ({users, createUser, getReturningUser}) => {
     const [playerName, setPlayerName] = useState('');
+    const [returningPlayer, setReturningPlayer] = useState({})
     const navigate = useNavigate();
+
+    const existingPlayerOptions = users.map((user) => {
+        return(
+            <option key={user._id} value={user._id}>{user.userName}</option>
+        )
+    })
 
     const handleInputChange = (e) => {
         setPlayerName(e.target.value);
     };
 
-    const handleSubmit = (e) => {
+    const handleNewPlayerSubmit = (e) => {
         e.preventDefault();
         createUser({ //will send a post request to the database and add a user
             userName: playerName,
@@ -20,9 +27,27 @@ const InputPlayerNameBox = ({createUser}) => {
         navigate(`/game?name=${playerName}`);
     };
 
+    const handleSelectClick = (e) => {
+        const id = e.target.value
+        const returningUser = users.find((user) => {
+            return user._id === id
+        })
+        setReturningPlayer(returningUser)
+        console.log(e.target.value)
+    }
+
+    const handleReturningPlayerSubmit = (e) => {
+        e.preventDefault()
+        getReturningUser(returningPlayer)
+        navigate(`/game?name=${returningPlayer.userName}`)
+        // navigate(`/game?id=${e.target.value}`)
+
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
+        <>
         <h1>Add a Username</h1>
+        <form onSubmit={handleNewPlayerSubmit}>
         <div className="group">
             <label htmlFor="name">Username:</label>
             <input 
@@ -38,6 +63,17 @@ const InputPlayerNameBox = ({createUser}) => {
 
         <input type="submit" name="submit" value="Save" />
         </form>
+
+        <h1>Returning User?</h1>
+        <form onSubmit={handleReturningPlayerSubmit}>
+        <div>
+            <select onChange={handleSelectClick}>
+                {existingPlayerOptions}
+            </select>
+        </div>
+            <input type="submit" name="submit" value="Play!" />
+        </form>
+        </>
     );
 };
 
