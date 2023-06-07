@@ -21,9 +21,11 @@ const StyledNavContainer = styled.nav`
     height: 40px;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 25px;
     font-weight: 900;
+    position: relative;
+    z-index: 2; // this stops the overlay
 
 ul {
     display: flex;

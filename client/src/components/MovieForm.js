@@ -92,7 +92,6 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
 
     return (
         <>
-            <h2>This is the MovieForm (contains InputGuessesBox and GuessesAttempted)</h2>
             {guesses.length === 0 ? <h3>You have 3 guesses remaining</h3> : null}
             {guesses.length === 1 ? <h3>You have 2 guesses remaining</h3> : null}
             {guesses.length === 2 ? <h3>You have 1 guess remaining</h3> : null}
