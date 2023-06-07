@@ -57,18 +57,6 @@ const InputGuessesBox = ({ movies, selectedOption, setSelectedOption, onGuessSub
         setSelectedOption(option);
     };
 
-    // console.log(selectedOption)
-    // onGuessSubmit(selectedOption);
-
-
-
-
-    // const movieTitleResults = movies.map((movie) => {
-    //     return movie.original_title
-    // })
-
-
-
     return (
         <>
             <StyledFormContainer onSubmit={handleSubmit}>

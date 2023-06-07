@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
-// import Header from '../components/Header';
 import MoviePoster from '../components/MoviePoster';
 import MovieForm from '../components/MovieForm';
-// import Footer from '../components/Footer';
-// import LeaderBoard from '../components/LeaderBoard';
-// import { getUsers, postUser, putUser } from '../services/UsersService';
-// import UserForm from '../components/UserForm';
-// import CongratulationsPopupModal from '../components/CongratulationsPopUpModal';
-// import GameOverPopupModal from '../components/GameOverPopUpModal';
 import styled from 'styled-components';
 
 
