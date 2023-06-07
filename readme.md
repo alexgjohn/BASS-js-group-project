@@ -6,7 +6,7 @@ Our idea was to make a Movie Guessing Game using a movie database API, by reveal
 
 ** Special thanks to John McNeill, Jack Dickson, Alex Bazlinton, James Drysdale and Colette Dufficy. **
 
-We used an API that The Movie Database (TMDB) provides [TMDB](https://www.themoviedb.org/)
+We used an API that The Movie Database provides  - [TMDB](https://www.themoviedb.org/)
 If the API key has expired, you can create your own account on TMDB and request an API key very easily. Just edit the App.js file with your new API.
 
 Things that need to do to be able to run the game:
@@ -33,15 +33,15 @@ REACT should open up in your browser (we recommend you use Chrome).
 # Play and enjoy!
 
 
-Things we added to our dependencies:
+Other things we added to our dependencies:
 
-npm mongodb@3.5.7
-npm i express
-npm i –save-dev cors
-npm install --save-dev nodemon
-npm react-router-dom
-npm install reactjs-popup --save
-npm install @mui/material @emotion/react @emotion/styled
-npm styled-components@5.3.10
-npm install @table-library/react-table-library @emotion/react
+- npm mongodb@3.5.7
+- npm i express
+- npm i –save-dev cors
+- npm install --save-dev nodemon
+- npm react-router-dom
+- npm install reactjs-popup --save
+- npm install @mui/material @emotion/react @emotion/styled
+- npm styled-components@5.3.10
+- npm install @table-library/react-table-library @emotion/react
 
