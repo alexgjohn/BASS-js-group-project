@@ -7,18 +7,13 @@ import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
 import GameContainer from './containers/GameContainer'; // Play page in navbar
 import GameRules from './components/GameRules';
-import LeaderBoardContainer from './containers/CanDeleteLeaderBoardContainer';
 import ErrorPage from './components/ErrorPage';
 import InputPlayerNameBox from './components/InputPlayerNameBox';
 import Footer from './components/Footer';
 import React, { useState, useEffect } from 'react';
-import MoviePoster from './components/MoviePoster';
-import MovieForm from './components/MovieForm';
 import LeaderBoard from './components/LeaderBoard';
 import { getUsers, postUser, putUser } from './services/UsersService';
-import UserForm from './components/UserForm';
-import CongratulationsPopupModal from './components/CongratulationsPopUpModal';
-import GameOverPopupModal from './components/GameOverPopUpModal';
+
 
 const apiKey = "3ca5b3528412adc793325fb27cf4b072";
 const baseUrl = "https://api.themoviedb.org/3";
@@ -91,10 +86,6 @@ function App() {
         setCurrentUser(returningUser)
     }
 
-    // const assignCurrentUser = () => {
-    //     const newPlayerIndex = (users.length - 1)
-    //     setCurrentUser(users[newPlayerIndex])
-    // }
 
 
 
