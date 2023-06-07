@@ -100,7 +100,8 @@ const MovieForm = ({ movies, targetMovie, updateUserStats, user, guesses, setGue
                 selectedOption={selectedOption}
                 emptyInputErrorMessage={emptyInputErrorMessage}
                 setEmptyInputErrorMessage={setEmptyInputErrorMessage}
-                isCongratulationsModalOpen={isCongratulationsModalOpen}
+                guesses={guesses}
+                isCongratulationsModalOpen={isCongratulationsModalOpen }
                 />
             )}
             <GuessesAttempted guesses={guesses} targetMovie={targetMovie}/>

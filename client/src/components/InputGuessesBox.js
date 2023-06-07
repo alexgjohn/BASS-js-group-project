@@ -10,24 +10,31 @@ import { Box } from '@mui/system';
 // styles
 import styled from 'styled-components';
 
-
-const StyledFormContainer = styled.form`
+const StyledContainerDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
+`
+const StyledFormContainer = styled.form`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
 
     .submit-button {
-        margin: 10px;
-        size: 40px;
-        padding: 10px;
-        width: 100px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         margin-left: 10px;
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+        padding: 30px;
+        width: 140px;
+        background-color: rgb(105, 27, 58);
+        border: none;
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        border-radius: 8px;
+        font-size: 20px;
     }
 
     .disabled-option {
@@ -43,7 +50,7 @@ const StyledFormContainer = styled.form`
 
 // I need to pass in state as a prop here movie title, when selected, set selected func
 
-const InputGuessesBox = ({ movies, selectedOption, setSelectedOption, onGuessSubmit, handleGuessSubmit, emptyInputErrorMessage, setEmptyInputErrorMessage, isCongratulationsModalOpen }) => {
+const InputGuessesBox = ({ movies, selectedOption, setSelectedOption, onGuessSubmit, handleGuessSubmit, emptyInputErrorMessage, setEmptyInputErrorMessage, isCongratulationsModalOpen, guesses }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (selectedOption) {
@@ -59,47 +66,59 @@ const InputGuessesBox = ({ movies, selectedOption, setSelectedOption, onGuessSub
 
     return (
         <>
-            <StyledFormContainer onSubmit={handleSubmit}>
-                <Stack sx={{ width: 500 }}>
-                    <Autocomplete
-                        id="autocomplete"
-                        // getOptionLabel() is how the individual label will be displayed
-                        getOptionLabel={(option) => `${option.original_title}`}
-                        // options is just to display all of the options available (for example, if we had Home Alone and then Home Alone 2, if someone typed 'Home' then they'd come up)
-                        options={movies}
-                        sx={{ width: 500 }}
-                        // styles but this isn't necessary as we could do CSS separately like using styled components maybe
-                        isOptionEqualToValue={(option, value) => option.id === value.id}
-                        // this is to only show one option if the value matches something so if it was Home Alone 2, the other Home Alone movies wouldn't show in the dropdown autocomplete
+            <StyledContainerDiv>
+                <StyledFormContainer onSubmit={handleSubmit}>
+                    <Stack sx={{ width: 500 }}>
+                        <Autocomplete
+                            id="autocomplete"
+                            // getOptionLabel() is how the individual label will be displayed
+                            getOptionLabel={(option) => `${option.original_title}`}
+                            // options is just to display all of the options available (for example, if we had Home Alone and then Home Alone 2, if someone typed 'Home' then they'd come up)
+                            options={movies}
+                            sx={{ width: 500 }}
+                            // styles but this isn't necessary as we could do CSS separately like using styled components maybe
+                            isOptionEqualToValue={(option, value) => option.id === value.id}
+                            // this is to only show one option if the value matches something so if it was Home Alone 2, the other Home Alone movies wouldn't show in the dropdown autocomplete
 
-                        // if they type a movie title that's not in the API then it's just a message that can say no movie found or something in the dropdown
-                        noOptionsText='Soz pal, nothing matches what you have typed in'
-                        value={selectedOption}
-                        onChange={(event, newValue) => setSelectedOption(newValue)}
-                        // renders the options on the page
-                        renderOption={(props, option) => (
-                            // the box is gonna be seen as an li item so it'll appear in a box
-                            // key here ensures every li tag or 'box' has a unique id associated with it
-                            // props is here so that one item from the dropdown can be clicked and can be used for some other component maybe
-                            <Box
-                                component="li"
-                                {...props}
-                                onClick={() => handleOptionClick(option)}
-                                className={option === selectedOption ? 'disabled-option' : ''}
-                            >
-                                {option.original_title}
-                            </Box>
-                        )}
-                        // was unsure about this so read about it
-                        // 
-                        renderInput={(params) => (<TextField {...params} label='Please type in your movie title guess and click submit...' required
+                            // if they type a movie title that's not in the API then it's just a message that can say no movie found or something in the dropdown
+                            noOptionsText='Soz pal, nothing matches what you have typed in'
+                            value={selectedOption}
+                            onChange={(event, newValue) => setSelectedOption(newValue)}
+                            // renders the options on the page
+                            renderOption={(props, option) => {
+                                const isOptionSelected = option === selectedOption;
+                                const isAlreadySelected = guesses.includes(option.original_title);
+
+                                return (
+                                    <Box
+                                        component="li"
+                                        {...props}
+                                        onClick={() => handleOptionClick(option)}
+                                        className={`${isOptionSelected ? 'disabled-option' : ''}`}
+                                        // Disable the option if it has already been selected
+                                        style={{ cursor: isAlreadySelected ? 'not-allowed' : 'pointer' }}
+                                        // Disable the option if it has already been selected
+                                        tabIndex={isAlreadySelected ? -1 : 0}
+                                    >
+                                        {option.original_title}
+                                    </Box>
+                                );
+                            }}
+
+
+
+
+                            // was unsure about this so read about it
+                            // 
+                            renderInput={(params) => (<TextField {...params} label='Please type in your movie title guess and click submit...' required
+                            />
+
+                            )}
                         />
-
-                        )}
-                    />
-                    <div><button className="submit-button" type="submit">Submit</button></div>
-                </Stack>
-            </StyledFormContainer>
+                        <div><button className="submit-button" type="submit">Submit</button></div>
+                    </Stack>
+                </StyledFormContainer>
+            </StyledContainerDiv>
         </>
     );
 };

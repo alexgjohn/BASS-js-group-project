@@ -10,7 +10,7 @@ import styled from 'styled-components';
 
 // navbar container (including logo text:))
 const StyledNavContainer = styled.nav`
-
+margin: 0;
     display: flex;
     font-family: 'Electrolize', sans-serif;
     background-color: rgb(105, 27, 58);
@@ -20,7 +20,6 @@ const StyledNavContainer = styled.nav`
     height: 40px;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
     font-size: 25px;
     font-weight: 900;
     position: relative;
