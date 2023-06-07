@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 
 const PopupBox = styled.article`
-    /* text-align: center; */
     `
     
     const Congrats = styled.h1`
@@ -37,6 +36,10 @@ function GameOverPopupModal({ targetMovie, isOpen, onClose }) {
 
     const posterPath = targetMovie ? `https://image.tmdb.org/t/p/original${targetMovie.poster_path}` : null
 
+    function refreshPage() {
+        window.location.reload(false);
+      }
+
     return (
         <ReactModal
         isOpen={isOpen}
@@ -53,6 +56,8 @@ function GameOverPopupModal({ targetMovie, isOpen, onClose }) {
             {posterPath && <SmallerPoster src={posterPath} />}
             <p>Exit</p>
             <button onClick={onClose}>Close</button>
+            <button onClick={refreshPage}>Play Again!</button>
+
         </PopupBox>
         </ReactModal>
     );

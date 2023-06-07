@@ -2,12 +2,8 @@ import { useState } from 'react';
 
 const UserForm = ({createUser}) => {
     const [userName, setUserName] = useState("");
-    // const [wins, setWins] = useState(0);
-    // const [played, setPlayed] = useState(0);
 
     const handleNameChange = (ev) => setUserName(ev.target.value);
-    //const handleEmailChange = (ev) => setEmail(ev.target.value);
-    //const handleCheckInChange = (ev) => setCheckedIn(ev.target.checked ? ev.target.checked : false);
 
     const handleSubmit = ev => {
         ev.preventDefault();
