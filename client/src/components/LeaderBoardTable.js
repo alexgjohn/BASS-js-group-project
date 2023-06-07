@@ -10,7 +10,7 @@ const LeaderBoardTable = ({ users }) => {
   
   const Table = styled.div`
   max-width: 900px; /* Set a maximum width for the table container */
-  margin: 0 auto; /* Center the table horizontally */
+  margin:20px auto; /* Center the table horizontally */
   `
   const data = { nodes: users };
 

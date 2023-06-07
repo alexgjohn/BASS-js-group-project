@@ -11,6 +11,13 @@ const HomePageContainer = styled.div`
 
     h2 {
         color: rgb(255, 255, 255);
+        text-align:center;
+        padding:100px;
+    }
+
+    p {
+        color: white;
+        text-align:center;
     }
 `
 

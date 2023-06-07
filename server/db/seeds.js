@@ -5,24 +5,24 @@ db.dropDatabase();
 
 db.users.insertMany([
     {
-        userName:"Joe Bloggs",
-        wins:3,
-        played:20
+        userName:"Sam B",
+        wins:8,
+        played:15
     },
     {
-        userName:"Sara Cox",
+        userName:"Panos",
         wins:5,
         played:10
     },
     {
-        userName:"SpongeBob Squarepants",
+        userName:"Reka",
         wins:4,
-        played:5
+        played:4
     },
     {
-        userName:"Jamie Lang",
+        userName:"Daniel",
         wins:4,
-        played:55
+        played:25
     }
 
 ])
