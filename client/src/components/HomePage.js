@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const HomePageContainer = styled.div`
     font-family: 'Electrolize', sans-serif;
@@ -26,7 +27,7 @@ const HomePage = () => {
         
         <HomePageContainer>
             <h2>WELCOME TO BASSGAMES</h2>
-            <p>Dare to play!</p>
+            <Link to="/play"><h2>Dare to play!</h2></Link>
         </HomePageContainer>
     );
 };
